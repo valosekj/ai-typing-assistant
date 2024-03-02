@@ -1,6 +1,6 @@
 # AI powered typing assistant with Ollama
 
-ℹ️ This is a fork of the https://github.com/patrickloeber/ai-typing-assistant. This version works for English (`F9`) 
+ℹ️ This is a fork of the [original code](https://github.com/patrickloeber/ai-typing-assistant). This version works for English (`F9`) 
 and Czech (`F10`).
 
 A script that can run in the background and listen to hotkeys, then uses a Large Language Model to fix the text. Less than 100 lines of code.
