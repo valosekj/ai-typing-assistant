@@ -1,5 +1,8 @@
 # AI powered typing assistant with Ollama
 
+ℹ️ This is a fork of the https://github.com/patrickloeber/ai-typing-assistant. This version works for English (`F9`) 
+and Czech (`F10`).
+
 A script that can run in the background and listen to hotkeys, then uses a Large Language Model to fix the text. Less than 100 lines of code.
 
 Inspired by this tweet:
@@ -41,8 +44,8 @@ python main.py
 
 Hotkeys you can then press:
 
-- F9: Fixes the current line (without having to select the text)
-- F10: Fixes the current selection
+- F9: Fixes the current selection in English
+- F10: Fixes the current selection in Czech
 
 **Note**: You may get an error the first time saying `This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients`. On Mac, you need to add the script (IDE/terminal) both on accessibility and input monitoring.
 
