@@ -16,7 +16,7 @@ OLLAMA_CONFIG = {
     "stream": False,
 }
 
-PROMPT_TEMPLATE = Template(
+PROMPT_TEMPLATE_ENGLISH = Template(
     """Fix all typos and casing and punctuation in this text, but preserve all new line characters:
 
 $text
@@ -28,6 +28,8 @@ Return only the corrected text, don't include a preamble.
 
 def fix_text(text):
     prompt = PROMPT_TEMPLATE.substitute(text=text)
+def fix_text_english(text):
+    prompt = PROMPT_TEMPLATE_ENGLISH.substitute(text=text)
     response = httpx.post(
         OLLAMA_ENDPOINT,
         json={"prompt": prompt, **OLLAMA_CONFIG},
@@ -50,10 +52,12 @@ def fix_current_line():
     controller.release(Key.shift)
     controller.release(Key.left)
 
-    fix_selection()
 
-
-def fix_selection():
+def on_f9():
+    """
+    Fix selection in English
+    :return:
+    """
     # 1. Copy selection to clipboard
     with controller.pressed(Key.cmd):
         controller.tap("c")
@@ -65,7 +69,7 @@ def fix_selection():
     # 3. Fix string
     if not text:
         return
-    fixed_text = fix_text(text)
+    fixed_text = fix_text_english(text)
     if not fixed_text:
         return
 
@@ -76,10 +80,6 @@ def fix_selection():
     # 5. Paste the clipboard and replace the selected text
     with controller.pressed(Key.cmd):
         controller.tap("v")
-
-
-def on_f9():
-    fix_current_line()
 
 
 def on_f10():
