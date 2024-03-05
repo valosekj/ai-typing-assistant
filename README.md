@@ -1,7 +1,15 @@
-# AI powered typing assistant with Ollama
+## NOTE 🇨🇿
 
-ℹ️ This is a fork of the [original code](https://github.com/patrickloeber/ai-typing-assistant). This version works for English (`F9`) 
-and Czech (`F10`).
+ℹ️ This is a fork of the [original code](https://github.com/patrickloeber/ai-typing-assistant). This version tries to work for both English 🇬🇧 (`F9`) and Czech 🇨🇿 (`F10`). 
+
+Based on preliminary observations, the performance of the models in correcting Czech typos is significantly lower than in English. So far, I have tried [mistral](https://ollama.com/library/mistral) and [llama2](https://ollama.com/library/llama2) models. Both in the 7B variant to handle them localy on my Macbook Pro.
+
+Potential future ideas on how to improve the Czech "typo" correction task:
+- finetune existing models using Czech data
+- try a model trained on Czech data (e.g., [BUT-FIT/Czech-GPT-2-XL-133k](https://huggingface.co/BUT-FIT/Czech-GPT-2-XL-133k) -- this model is not available using `ollama`, though)
+- figure out how to run larger models (such as llama2 13b or 70b) locally more efficiently -- possible solution for Apple Silicon: try [MLX](https://github.com/ml-explore/mlx)
+
+# AI powered typing assistant with Ollama
 
 A script that can run in the background and listen to hotkeys, then uses a Large Language Model to fix the text. Less than 100 lines of code.
 
